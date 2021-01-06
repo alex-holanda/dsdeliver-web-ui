@@ -1,10 +1,12 @@
+import Navbar from './pages/Navbar';
 
-import './App.css';
+import './styles/global.css';
 
 function App() {
+
   return (
-    <div className="App">
-      <h1>Hello world!</h1>
+    <div>
+      <Navbar />
     </div>
   );
 }
