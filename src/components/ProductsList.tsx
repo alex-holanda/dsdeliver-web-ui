@@ -1,19 +1,30 @@
-import '../styles/components/ProductsList.scss';
+import { useEffect, useState } from 'react';
+
+import { Product } from '../types/Product';
+import { fetchProducts } from '../service/Product.service';
 import ProductCard from './ProductCard';
 
-const ProductsList = () => {
+import '../styles/components/ProductsList.scss';
+
+type Props = {
+  products: Product[]
+}
+
+const ProductsList = ({ products }: Props) => {
+
   return (
     <div className="orders-list-container">
       <div className="orders-list-items">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+        {
+          products.map(product => {
+            return (
+              <ProductCard
+                key={product.id}
+                product={product}
+              />
+            )
+          })
+        }
       </div>
     </div>
   );
