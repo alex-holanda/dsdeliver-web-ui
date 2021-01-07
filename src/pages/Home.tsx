@@ -1,13 +1,15 @@
-import '../styles/pages/Home.scss';
+import { Link } from 'react-router-dom';
+
+import Footer from '../components/Footer';
 
 import Main from '../images/main.svg';
-import Footer from '../components/Footer';
+
+import '../styles/pages/Home.scss';
 
 const Home = () => {
   return (
     <>
-
-      <div className="home-container">
+      <div id="home-container">
         <div className="home-content">
           <div className="home-actions">
             <h1 className="home-title">
@@ -18,9 +20,9 @@ const Home = () => {
               Escolha o seu pedido e em poucos minutos <br /> levaremos na sua porta
           </h3>
 
-            <a href="orders" className="home-btn-order">
+            <Link to="/orders" className="home-btn-order">
               FAZER PEDIDO
-          </a>
+          </Link>
           </div>
 
           <img src={Main} alt="Main" className="home-image" />

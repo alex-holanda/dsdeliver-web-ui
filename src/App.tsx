@@ -1,5 +1,4 @@
-import Navbar from './components/Navbar';
-import Home from './pages/Home';
+import Routes from './router';
 
 import './styles/global.css';
 
@@ -7,8 +6,7 @@ function App() {
 
   return (
     <>
-      <Navbar />
-      <Home />
+      <Routes />
     </>
   );
 }
