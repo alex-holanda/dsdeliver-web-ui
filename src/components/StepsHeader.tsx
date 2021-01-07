@@ -2,7 +2,7 @@ import '../styles/components/StepsHeader.scss';
 
 const StepsHeader = () => {
   return (
-    <header id="orders-steps-container">
+    <header className="orders-steps-container">
       <div className="orders-steps-content">
         <h1 className="steps-title">
           SIGA AS <br /> ETAPAS
