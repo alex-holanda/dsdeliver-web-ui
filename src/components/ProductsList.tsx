@@ -1,7 +1,4 @@
-import { useEffect, useState } from 'react';
-
 import { Product } from '../types/Product';
-import { fetchProducts } from '../service/Product.service';
 import ProductCard from './ProductCard';
 
 import '../styles/components/ProductsList.scss';
