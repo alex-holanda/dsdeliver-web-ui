@@ -55,7 +55,7 @@ const Orders = () => {
     }
 
     saveOrder(payload).then((response) => {
-      toast.error(`Pedido enviado com sucesso! nº ${response.data.id});
+      toast.error(`Pedido enviado com sucesso! nº ${response.data.id}`);
       setSelectedProducts([]);
     }).catch(() => {
       toast.warning('Erro ao enviar pedido');
