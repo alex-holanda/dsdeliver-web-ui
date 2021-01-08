@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+
 import Footer from '../components/Footer';
 import OrderLocation from '../components/OrderLocation';
 import OrderSummary from '../components/OrderSummary';
 
 import ProductsList from '../components/ProductsList';
 import StepsHeader from '../components/StepsHeader';
+import { saveOrder } from '../service/Order.service';
 import { fetchProducts } from '../service/Product.service';
 
 import '../styles/pages/Orders.scss';
@@ -41,6 +44,24 @@ const Orders = () => {
     }
   }
 
+  const handleSubmit = () => {
+
+    const productsIds = selectedProducts.map(({id}) => ({productId: id}));
+    console.log(productsIds);
+
+    const payload = {
+      ...orderLocation!,
+      products: productsIds
+    }
+
+    saveOrder(payload).then(() => {
+      toast.error('Pedido enviado com sucesso!');
+      setSelectedProducts([]);
+    }).catch(() => {
+      toast.warning('Erro ao enviar pedido');
+    });
+  }
+
   return (
     <>
       <div className="orders-container">
@@ -56,6 +77,7 @@ const Orders = () => {
         <OrderSummary
           amount={selectedProducts.length}
           totalPrice={totalPrice}
+          onSubmit={handleSubmit}
         />
       </div>
       <Footer />
